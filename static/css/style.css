@@ -1,7 +1,8 @@
 body {
     margin: 0;
-    font-family: "Calibri", sans-serif;
+    font-family: "Comfortaa", "Consolas", sans-serif;
     font-size: 2vmin;
+    width: 100%;
 }
 
 * {

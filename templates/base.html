@@ -3,11 +3,44 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% block title %}{% endblock %}</title>
+  <title>La Banque – {% block title %}{% endblock %}</title>
   {% block head %}
   {% endblock %}
+  {% block override_favicon %}<link rel="icon" href="{{ url_for('static', filename='img/favicon.ico') }}">{% endblock %}
+  {% block override_css %}<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">{% endblock %}
+  {% block override_js %}<script src="{{ url_for('static', filename='js/app.js') }}" defer></script>{% endblock %}
+  <noscript>
+    <style>
+      body > noscript ~ * {
+        display: none;
+      }
+    </style>
+  </noscript>
+  
 </head>
 <body>
+  <noscript>
+    <p>Please activate JavaScript to use this website. This is to ensure that data you submit is valid.</p>
+  </noscript>
+  {% block toolbar %}
+  <nav id="toolbar">
+    <form action="/"><button style="font-family: 'Consolas', monospace;">TeleMD</button></form>
+    <form action="/records/"><button>Medical Record</button></form>
+    <form action="/schedule/"><button>Checkup Schedule</button></form>
+    <form action="/meet/"><button>Ad-hoc Meeting</button></form>
+    {% if session.id %}
+      <form action="/logout/" method="post">
+        <button style="float: right;">Logout</button>
+      </form>
+    {% else %}
+      <a href="/login/"><button style="float: right;">Login</button></a>
+    {% endif %}
+  </nav>
+  {% endblock %}
+  {% block override_bg %}
+  <div id="background">
+  </div>
+  {% endblock %}
   {% block body %}
   {% endblock %}
 </body>

@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block title %}Records | TeleMD{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/table.css') }}">
+{% endblock %}
+
+{% block body %}
+    <table style="margin: 20px auto;">
+        <thead>
+            <tr>
+                <th>Vaccine Type</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in immunizations %}
+                <tr onclick="navigator.clipboard.writeText(window.location.origin + '/account/' + this.firstElementChild.innerText)">
+                    <td>{{ i[0] }}</td>
+                    <td>{{ i[1] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+        <table style="margin: 20px auto;">
+        <thead>
+            <tr>
+                <th>Allergy Type</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for a in allergies %}
+                <tr onclick="navigator.clipboard.writeText(window.location.origin + '/account/' + this.firstElementChild.innerText)">
+                    <td>{{ i[0] }}</td>
+                    <td>{{ i[1] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+        <table style="margin: 20px auto;">
+        <thead>
+            <tr>
+                <th>Medications</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for m in meds %}
+                <tr onclick="navigator.clipboard.writeText(window.location.origin + '/account/' + this.firstElementChild.innerText)">
+                    <td>{{ i[0] }}</td>
+                    <td>{{ i[1] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+        <table style="margin: 20px auto;">
+        <thead>
+            <tr>
+                <th>Vitals</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for v in vitals %}
+                <tr onclick="navigator.clipboard.writeText(window.location.origin + '/account/' + this.firstElementChild.innerText)">
+                    <td>{{ i[0] }}</td>
+                    <td>{{ i[1] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

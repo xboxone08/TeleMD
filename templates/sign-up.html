@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}Sign Up{% endblock %}
+
+{% block head %}
+  <link rel="stylesheet"
+        href="{{ url_for('static', filename='css/form.css') }}">
+  <script src="{{ url_for('static', filename='js/form.js') }}" defer></script>
+{% endblock %}
+
+{% block body %}
+  <div class="flex-container">
+    <form name="sign-up" method="post" class="centered flex-container card">
+      <h2>Sign Up</h2>
+      {% if match_issue %}<p style="background-color: lightcoral;" class="notice">Passwords did not match</p>{% endif %}
+      <input name="f-name" placeholder="First Name" required>
+      <input name="m-name" placeholder="Middle Name (optional)">
+      <input name="l-name" placeholder="Last Name" required>
+      <input name="age" type="number" placeholder="Age" required>
+      <fieldset>
+        <p>Biological Sex</p>
+        <input name="sex" id="m" value="m" type="radio" required>
+        <label for="m">Male</label>
+        <br>
+        <input name="sex" id="f" value="f" type="radio" required>
+        <label for="f">Female</label>
+        <br>
+        <input name="sex" id="x" value="x" type="radio" required>
+        <label for="x">Other</label>
+      </fieldset>
+      <input name="username" placeholder="Username" required>
+      <input name="password"
+             id="password"
+             type="password"
+             placeholder="Password"
+             minlength="8"
+             required>
+      <input name="confirm-password"
+             id="confirm-password"
+             type="password"
+             placeholder="Confirm Password"
+             required>
+      <button>Sign Up →</button>
+      <a href="/login/" style="display: inline; font-size: medium;">Already a member?</a>
+    </form>
+  </div>
+{% endblock %}

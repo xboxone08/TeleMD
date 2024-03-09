@@ -1,0 +1,62 @@
+body {
+    height: 100vh;
+}
+
+form.card>*,
+form.card fieldset {
+    display: block;
+    font-size: 2.5vh;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 100%;
+    padding: 1%;
+    margin: 0 5px;
+}
+
+form.card>fieldset fieldset {
+    width: 90%;
+    border: 0;
+}
+
+form.card>div,
+form.card>a {
+    border: none;
+    border-radius: 0;
+    color: blue;
+    text-align: center;
+}
+
+form.card>p.notice {
+    border: 1px solid black;
+    color: black;
+}
+
+form.card>a:active {
+    color: blue;
+}
+
+form.card>a:visited {
+    color: blue;
+}
+
+form.card input:invalid {
+    outline: 2px solid red;
+}
+
+form.card>button {
+    background-color: white;
+    cursor: pointer;
+}
+
+form.card>button:hover {
+    background-color: lightgray;
+}
+
+form.card>button:active {
+    background-color: #00CC66;
+}
+
+form.card>h2 {
+    border: 0;
+    text-align: center;
+}

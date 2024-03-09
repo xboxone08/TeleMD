@@ -1,11 +1,26 @@
 {% extends 'base.html' %}
 
-{% block title %}Home | Telemedicine{% endblock %}
-
-{% block head %}
-{% endblock %}
+{% block title %} TeleMD {% endblock %}
 
 {% block body %}
-<h1> Telemedicine Inc. </h1>
-
+  <div class="centered card" style="height: fit-content; width: 50%;">
+    <h1>Welcome to TeleMD, the premier service for telemedicine.</h1>
+    <p>
+      Not a member yet? <a href="/sign-up/">Join</a> today!
+    </p>
+    <p>
+      TeleMD allows patients to recieve top tier healthcare completely online!
+      Update your records, get checkups, and speak with an MD right from home!
+    </p>
+    <h2>Benefits</h2>
+    <p>
+      <ul>
+        <li>Cheaper</li>
+        <li>More convenient</li>
+        <li>More accessible</li>
+        <li>Easy scheduling</li>
+        <li>Access to specialists</li>
+      </ul>
+    </p>
+  </div>
 {% endblock %}
