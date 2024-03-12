@@ -63,13 +63,13 @@ class User:
             self.f_name, self.m_name, self.l_name, self.age, self.sex, self.pass_hash, self.username))
 
         # Permanent Records
-        User.cursor.executemany('INSERT OR REPLACE INTO immunizations VALUES (?, ?, ?);', [
+        User.cursor.executemany('INSERT OR REPLACE INTO immunizations VALUES (?, ?, ?, ?);', [
             tuple(t) for t in self.immunizations])
-        User.cursor.executemany('INSERT OR REPLACE INTO allergies VALUES (?, ?);', [
+        User.cursor.executemany('INSERT OR REPLACE INTO allergies VALUES (?, ?, ?);', [
             tuple(t) for t in self.allergies])
-        User.cursor.executemany('INSERT OR REPLACE INTO meds VALUES (?, ?);', [
+        User.cursor.executemany('INSERT OR REPLACE INTO meds VALUES (?, ?, ?);', [
             tuple(t) for t in self.meds])
-        User.cursor.executemany('INSERT OR REPLACE INTO vitals VALUES (?, ?, ?);', [
+        User.cursor.executemany('INSERT OR REPLACE INTO vitals VALUES (?, ?, ?, ?);', [
             tuple(t) for t in self.vitals])
 
         User.db.commit()

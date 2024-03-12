@@ -1,0 +1,7 @@
+CREATE TABLE users (f_name TEXT, m_name TEXT, l_name TEXT, age INTEGER, sex TEXT, pass_hash TEXT, username TEXT PRIMARY KEY);
+CREATE TABLE doctors (f_name TEXT, m_name TEXT, l_name TEXT, specialization TEXT, username TEXT PRIMARY KEY);
+CREATE TABLE immunizations (id INTEGER PRIMARY KEY, type TEXT, date TEXT, username INTEGER, FOREIGN KEY(username) REFERENCES users(username));
+CREATE TABLE allergies (id INTEGER PRIMARY KEY, type TEXT, username INTEGER, FOREIGN KEY(username) REFERENCES users(username));
+CREATE TABLE meds (id INTEGER PRIMARY KEY, type TEXT, username INTEGER, FOREIGN KEY(username) REFERENCES users(username));
+CREATE TABLE vitals (id INTEGER PRIMARY KEY, type TEXT, date TEXT, username INTEGER, FOREIGN KEY(username) REFERENCES users(username));
+CREATE TABLE appointments (id INTEGER PRIMARY KEY, user TEXT, md TEXT, date TEXT, FOREIGN KEY(user) REFERENCES users(username), FOREIGN KEY(md) REFERENCES doctors(username));

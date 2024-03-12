@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}Records | TeleMD{% endblock %}
+{% block title %}Records{% endblock %}
 
 {% block head %}
     <link rel="stylesheet"
@@ -18,8 +18,8 @@
         <tbody>
             {% for a in appointments %}
                 <tr onclick="navigator.clipboard.writeText(window.location.origin + '/account/' + this.firstElementChild.innerText)">
-                    <td>{{ i[0] }}</td>
-                    <td>{{ i[1] }}</td>
+                    <td style="background-color: {{ loop.cycle('white', 'lightgray') }};">{{ i[0] }}</td>
+                    <td style="background-color: {{ loop.cycle('white', 'lightgray') }};">{{ i[1] }}</td>
                 </tr>
             {% endfor %}
         </tbody>
