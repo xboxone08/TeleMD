@@ -21,6 +21,11 @@
                     <td style="background-color: {{ loop.cycle('white', 'lightgray') }};">{{ i[0] }}</td>
                     <td style="background-color: {{ loop.cycle('white', 'lightgray') }};">{{ i[1] }}</td>
                 </tr>
+           {% else %}
+                <tr>
+                    <td style="background-color: white;">No Results</td>
+                    <td style="background-color: white;">No Results</td>
+                </tr>
             {% endfor %}
         </tbody>
     </table>

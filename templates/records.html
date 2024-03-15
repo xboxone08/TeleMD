@@ -21,6 +21,11 @@
                     <td style="background-color: {{ loop.cycle('white', 'lightgray') }};">{{ i[0] }}</td>
                     <td style="background-color: {{ loop.cycle('white', 'lightgray') }};">{{ i[1] }}</td>
                 </tr>
+            {% else %}
+                <tr>
+                    <td style="background-color: white;">No Results</td>
+                    <td style="background-color: white;">No Results</td>
+                </tr>
             {% endfor %}
         </tbody>
     </table>
@@ -36,7 +41,11 @@
                     <td style="background-color: {{ loop.cycle('white', 'lightgray') }};">{{ a[0] }}</td>
                     <td style="background-color: {{ loop.cycle('white', 'lightgray') }};">{{ a[1] }}</td>
                 </tr>
-            {% endfor %}
+            {% else %}
+                <tr>
+                    <td style="background-color: white;">No Results</td>
+                </tr>
+                {% endfor %}
         </tbody>
     </table>
         <table style="margin: 20px auto;">
@@ -50,6 +59,10 @@
                 <tr onclick="navigator.clipboard.writeText(window.location.origin + '/account/' + this.firstElementChild.innerText)">
                     <td style="background-color: {{ loop.cycle('white', 'lightgray') }};">{{ m[0] }}</td>
                     <td style="background-color: {{ loop.cycle('white', 'lightgray') }};">{{ m[1] }}</td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td style="background-color: white;">No Results</td>
                 </tr>
             {% endfor %}
         </tbody>
@@ -67,7 +80,12 @@
                     <td style="background-color: {{ loop.cycle('white', 'lightgray') }};">{{ v[0] }}</td>
                     <td style="background-color: {{ loop.cycle('white', 'lightgray') }};">{{ v[1] }}</td>
                 </tr>
-            {% endfor %}
+            {% else %}
+                <tr>
+                    <td style="background-color: white;">No Results</td>
+                    <td style="background-color: white;">No Results</td>
+                </tr>
+                {% endfor %}
         </tbody>
     </table>
 {% endblock %}
