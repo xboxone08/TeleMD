@@ -1,6 +1,5 @@
 from bcrypt import checkpw, gensalt, hashpw
-from flask import Flask, abort, render_template, redirect, request, session
-from traceback import print_exc
+from flask import Flask, render_template, redirect, request, session
 from classes import User
 
 member_ids = []
@@ -57,20 +56,19 @@ try:
     @app.route("/records/")
     def records():
         if session.get('id'):
-          user = User.get_user(session['id'])
-          return render_template('records.html', immunizations=user.immunizations, allergies=user.allergies, meds=user.meds, vitals=user.vitals)
+            user = User.get_user(session['id'])
+            return render_template('records.html', immunizations=user.immunizations, allergies=user.allergies, meds=user.meds, vitals=user.vitals)
         return redirect('/login/?redir=/records/')
 
     @app.route("/schedule/")
     def schedule():
         if session.get('id'):
-          user = User.get_user(session['id'])
-          return render_template('schedule.html', appointments=user.appointments)
+            user = User.get_user(session['id'])
+            return render_template('schedule.html', appointments=user.appointments)
         return redirect('/login/?redir=/records/')
 
     if __name__ == '__main__':
         app.run('0.0.0.0', 443, ssl_context='adhoc')
-except:
-    print_exc()
+except Exception as e:
     User.close()
-    raise SystemExit
+    raise SystemExit from e
